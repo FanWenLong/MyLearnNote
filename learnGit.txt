@@ -66,8 +66,19 @@ git config --global user.email "email@example.com"
 			另一种方式是用git stash pop，恢复的同时把stash内容也删了。
 	  stash可以多次，可以在查看列表后通过git stash apply stash@{<id>}来恢复指定的stash。
 	10.查看远程库信息：git remote。或 git remote -v 显示更详细的信息。
-	
-	
+
+16.标签管理：
+	1.在需要的分支上创建标签：git tag v1.0 (默认打在最新上)
+	2.查看所有标签：git tag
+	3.找到历史提交的commit id：git log --pretty=oneline --abbrev-commit
+	4.指定位置进行打标签：git tag v0.9 <commit id> 
+	5.查看标签信息：git show <tagname>
+	5.标签加说明：git tag -a v0.1 -m "version 0.1 released" <commit id>
+	6.标签私钥签名：git tag -s v0.2 -m "signed version 0.2 released" <commit id>,使用GPG签名。
+	7.删除标签：git tag -d v0.1
+	8.推送标签到远程：git push origin v1.0
+	9.一次性推送全部尚未推送到远程的本地标签：git push origin --tags
+	10.删除远程标签：先从本地删除，git push origin :refs/tags/v0.9
 	
 	
 	
