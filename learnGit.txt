@@ -1,3 +1,5 @@
+参考网站：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000
+
 1.下载对应版本的git安装包
 
 2.执行默认安装选项即可（一路next）
@@ -24,3 +26,5 @@ git config --global user.email "email@example.com"
 10.git reset --hard HEAD^  回退上一个版本（HEAD^^上两个，HEAD~100，前100个）。
 
 11.git reflog 查看每次操作的commit id（最前头的就是），然后就可以随时更好当前的版本了 （git reset --hard <commitID>）
+
+12.git checkout -- <文件名> 回退到最近一次git commit或git add时的状态。
