@@ -1,1 +1,9 @@
 1.下载对应版本的git安装包
+
+2.执行默认安装选项即可（一路next）
+
+3.成功后直接运行（或去找到git bash）
+
+4.设置本地的用户：（global即本电脑所有git仓都用这个用户，也可单独配置）
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
