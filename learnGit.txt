@@ -57,6 +57,8 @@ git config --global user.email "email@example.com"
 	5.查看分支：git branch。当前分支前面会标一个*号
 	6.合并分支：git merge <name>。如果有Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快
 	7.删除分支：git branch -d <name>.
+	8.Fast-forward模式下，删除分支后，会丢掉分支信息。禁用后可从分支历史中看出分支信息。
+	  命令：git merge --no-ff -m "merge with no-ff" <name>,因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
 	
 	
 	
