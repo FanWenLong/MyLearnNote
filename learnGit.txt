@@ -52,10 +52,11 @@ git config --global user.email "email@example.com"
 	2.HEAD指向的是当前的分支，即如果创建一个新的分支dev，HEAD就会指向dev。新提交一次后，dev指针往前移动一步，而master指针不变。
 	  把master指向dev的当前提交，就完成了合并。
 	  合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支
-	3.创建分支：git checkout -b dev 与（git branch dev，git checkout dev）相同。
-	4.切换分支：Switched to branch 'dev'。切换回主分支（git checkout master，Switched to branch 'master'）
+	3.创建分支：git checkout -b <name> 与（git branch <name>，git checkout <name>）相同。
+	4.切换分支：git checkout <name>。
 	5.查看分支：git branch。当前分支前面会标一个*号
-	6.合并分支：git merge dev。如果有Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快
+	6.合并分支：git merge <name>。如果有Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快
+	7.删除分支：git branch -d <name>.
 	
 	
 	

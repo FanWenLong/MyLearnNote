@@ -1,0 +1,106 @@
+环境搭建：
+	
+Node.js 6中的最高版本即可，下载后修改npm镜像：
+npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global
+
+安装react-native命令行工具
+npm install -g react-native-cli
+
+Python2.x系列即可
+
+genymotion模拟器，F1键唤起调试。配合chrome浏览器使用。
+
+genymotion的adb设置需要与sdk的相同，不然后重复出现adb端口被占用的错误。
+
+webstore 破解需要在激活中选择第三个，输入http://idea.codebeta.cn即可。
+	 
+	 在设置中设置languages&frameworks->javascript->..JSX..(语法支持)
+
+
+知识点：
+	1.fetch网络请求。
+	2.promise结果返回。
+	3.ES6
+	
+
+
+后记：
+
+1.react-native init <项目名称>，在命令根目录下生产项目
+
+2.react-native run-android, 运行项目，如果项目用Android studio运行过，需要clean一下再用命令。第一次运行出现bundle...错误的，要在根目录下
+	
+运行该代码：
+		
+老版本：（有index.android.js文件的）react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output
+android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+新版本：（有index.js和App.js文件的）react-native bundle --platform android --dev false --entry-file index.js --bundle-output
+android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
+然后执行run-android
+
+遇到问题可以在app下的build.gradle中加入
+aaptOptions{
+	cruncherEnabled = false
+	useNewCruncher = false
+}
+
+手机运行项目后，会跳转到设置可以显示在其他应用上层的界面
+
+一直提示adb端口被占可能是因为genymotion设置的adb路径跟sdk的不一样
+
+3.react-native install 项目更换目录或接手其他的项目需要先执行这个，它会根据package.json中的内容去下载依赖。
+
+4.Android studio运行项目中的Android项目即可运行。
+
+5.react native 不能reaload时，修改（项目\node_modules\node-haste\lib\FileWather\index.js,把MAX_WAIT_TIME改成360000）
+
+
+react native 知识点:
+
+0.{}表示变量，任何js表达式都可以放里面，值是执行后的值。
+
+1.布局的this.props.name,就是调用自己的这个属性，不需要声明初始化，用这个控件的时候自动调用即可。
+
+2.样式使用StyleSheet.create来创建，参数使用驼峰式，类似css结构。外部直接点就可以。
+
+3.宽高类似于dp，flex类似权重，如果父控件为0，则不显示。
+
+4.布局：主轴与次轴是垂直的关系。
+
+	指定主轴：	  FlexDirection： row（左->右）row-reverse，column（上->下）column-reverse
+	排列方式（主轴）：justifyContent：（类似gravity）flex-start，center，flex-end，space-between（n-1个空），space-around（n+1个空）
+	排列方式（次轴）：alignItems    ：flex-start、center、flex-end、stretch（次轴方向不能有宽度，大概是自适应大小）
+
+5.TextInput：（EditText），两个监听，一个文本变化的监听，onChangeText，一个是提交onSubmitEditing。（可参见文档）
+
+6.ScrollView:(horizontal指定方向)会将里面所有的内容渲染，性能较差。
+
+7.FlatList：用于显示一个垂直的滚动列表，其中的元素之间结构近似而仅数据不同，元素个数可以增删。必须的两个属性是data和renderItem。data是列	    表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染
+
+8.SectionList，有分类的，（类似expandablelistview）属性：sections（数据）、renderItem、renderSectionHeader（分类的块）。
+
+9.获取数据使用fetch API，可以参数官网。WebSocket，这种协议可以在单个TCP连接上提供全双工的通信信道。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
