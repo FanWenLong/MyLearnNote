@@ -40,7 +40,7 @@ git config --global user.email "email@example.com"
 													   远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
 	5.git push命令，实际上是把当前分支master推送到远程。-u 参数是第一次提交到master，
 	  Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
-	6.git push origin master，通过这个命令就可以把本地master分支最新修改推送至GitHub。
+	6.git push origin master，通过这个命令就可以把本地master分支最新修改推送至GitHub。master为本地要推送的分支。origin为远程库的名字。
 	7.git clone <地址>可以克隆远程仓库到本地。git开头的地址与https开头的地址都可以，只是有些网络只开放http的端口，所以只能使用https的地址。
 		关于获取地址，可以在GitHub中项目的首页看到一个“Clone or download”，点击弹出面板右上角有切换即可看到两种地址。
 		另外，https的每次push和clone都要填写用户名和密码，比较麻烦。
@@ -56,9 +56,16 @@ git config --global user.email "email@example.com"
 	4.切换分支：git checkout <name>。
 	5.查看分支：git branch。当前分支前面会标一个*号
 	6.合并分支：git merge <name>。如果有Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快
-	7.删除分支：git branch -d <name>.
+	7.删除分支：git branch -d <name>.  强行删除git branch -D <name>.
 	8.Fast-forward模式下，删除分支后，会丢掉分支信息。禁用后可从分支历史中看出分支信息。
 	  命令：git merge --no-ff -m "merge with no-ff" <name>,因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+	9.子分支隐藏，新建另外的子分支来解决问题，然后再恢复这个子分支
+	  命令：git stash,  git stash list(查看隐藏的分支的列表)，
+	  恢复一下，有两个办法：
+			一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+			另一种方式是用git stash pop，恢复的同时把stash内容也删了。
+	  stash可以多次，可以在查看列表后通过git stash apply stash@{<id>}来恢复指定的stash。
+	10.查看远程库信息：git remote。或 git remote -v 显示更详细的信息。
 	
 	
 	
