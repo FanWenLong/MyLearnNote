@@ -28,3 +28,33 @@ git config --global user.email "email@example.com"
 11.git reflog 查看每次操作的commit id（最前头的就是），然后就可以随时更好当前的版本了 （git reset --hard <commitID>）
 
 12.git checkout -- <文件名> 回退到最近一次git commit或git add时的状态。
+
+13.rm <文件名>后，1：确实要删除，执行 git rm <文件名> 2:删除错误，执行git checkout -- <文件名> 可以恢复。
+
+14.远程仓库的创建：
+	1.如果c盘用户目录下.ssh这个目录下有id_rsa和id_rsa.pub这两个文件，可以跳过，否则执行 ssh-keygen -t rsa -C "youremail@example.com"
+	2.登陆GitHub，打开“settings”，“SSH and GPG Keys”页面，"new SSH Key", key中添加id_rsa.pub中的内容保存。
+	3.创建仓库：点击 + 选择new repository，填入名字后保存。
+	4.可以create new，或者把本地的仓库同步。（同步操作 git remote add origin https://github.com/FanWenLong/MyLearnNote.git（你自己的链接）
+													   git push -u origin master）这个命令会弹出登录GitHub框，登录即可。
+													   远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+	5.git push命令，实际上是把当前分支master推送到远程。-u 参数是第一次提交到master，
+	  Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+	6.git push origin master，通过这个命令就可以把本地master分支最新修改推送至GitHub。
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
