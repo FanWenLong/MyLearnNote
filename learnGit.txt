@@ -18,3 +18,5 @@ git config --global user.email "email@example.com"
 7.git status 显示当前tree的状态，是否有修改、待提交等内容。
 
 8.git diff <文件名> 查看文件最后一次被修改的内容。
+
+9.git log 查看提交的日志，（git log --pretty=oneline）可以单行显示。
