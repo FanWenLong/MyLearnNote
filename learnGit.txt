@@ -41,6 +41,9 @@ git config --global user.email "email@example.com"
 	5.git push命令，实际上是把当前分支master推送到远程。-u 参数是第一次提交到master，
 	  Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 	6.git push origin master，通过这个命令就可以把本地master分支最新修改推送至GitHub。
+	7.git clone <地址>可以克隆远程仓库到本地。git开头的地址与https开头的地址都可以，只是有些网络只开放http的端口，所以只能使用https的地址。
+		关于获取地址，可以在GitHub中项目的首页看到一个“Clone or download”，点击弹出面板右上角有切换即可看到两种地址。
+	
 	
 	
 	
