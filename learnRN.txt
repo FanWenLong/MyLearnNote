@@ -33,10 +33,8 @@ webstore 破解需要在激活中选择第三个，输入http://idea.codebeta.cn即可。
 	
 运行该代码：
 		
-老版本：（有index.android.js文件的）react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output
-android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
-新版本：（有index.js和App.js文件的）react-native bundle --platform android --dev false --entry-file index.js --bundle-output
-android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+老版本：（有index.android.js文件的）react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+新版本：（有index.js和App.js文件的）react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
 
 然后执行run-android
 
