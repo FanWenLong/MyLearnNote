@@ -52,7 +52,8 @@ aaptOptions{
 
 4.Android studio运行项目中的Android项目即可运行。
 
-5.react native 不能reaload时，修改（项目\node_modules\node-haste\lib\FileWather\index.js,把MAX_WAIT_TIME改成360000）
+5.react native 不能reaload时，修改（app_name\node_modules\react-native\packager\react-packager\src\node-haste\FileWatcher\index.js,把MAX_WAIT_TIME改成360000）
+（如果没有的可以尝试找：app_name\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js ）
 
 
 react native 知识点:
