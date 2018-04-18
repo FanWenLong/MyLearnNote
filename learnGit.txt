@@ -9,14 +9,21 @@
 4.设置本地的用户：（global即本电脑所有git仓都用这个用户，也可单独配置）
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
+git config --list 查看配置列表，如上面的用户信息
 
 5.初始化仓库：git init
 
-6.git add <文件名>，添加文件进入版本控制，git commit -m <说明> 提交添加的add的文件，-m为此次提交的说明，
-可以add多次，然后一次提交即可。如果遇到忘记添加 -m 说明的，git会进入一个提交说明的窗口，操作如下：
-	1.按 i 键，窗口下方出现-insert-，光标在窗口顶部第一行。
-	2.输入要说明的内容后，按ESC，然后按 ：（冒号），光标在窗口底部。
-	3.输入wq，然后回车。
+6.git add <文件名>，添加文件进入版本控制，例：git add readme.txt。
+
+	可以add多次或git add -A 来添加全部，然后一次提交即可。
+	
+	git commit -m <说明> 提交添加的add的文件，-m为此次提交的说明，例：git commit -m '第一提交'。
+	
+	如果遇到忘记添加 -m 说明的，git会进入一个提交说明的窗口，操作如下：
+		1.按 i 键，窗口下方出现-insert-，光标在窗口顶部第一行。
+		2.输入要说明的内容后，按ESC，然后按 ：（冒号），光标在窗口底部。
+		3.输入wq，然后回车。
+		
 7.git status 显示当前tree的状态，是否有修改、待提交等内容。
 
 8.git diff <文件名> 查看文件最后一次被修改的内容。
