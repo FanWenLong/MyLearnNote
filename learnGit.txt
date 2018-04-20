@@ -45,6 +45,8 @@ git config --list 查看配置列表，如上面的用户信息
 	4.可以create new，或者把本地的仓库同步。（同步操作 git remote add origin https://github.com/FanWenLong/MyLearnNote.git（你自己的链接）
 													   git push -u origin master）这个命令会弹出登录GitHub框，登录即可。
 													   远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+		如果在创建仓库的时候，选择了添加readme文件，本地仓库也提交了几次，在进行同步操作的时候，可能会出错，
+		使用git pull --rebase origin master，然后再push
 	5.git push命令，实际上是把当前分支master推送到远程。-u 参数是第一次提交到master，
 	  Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 	6.git push origin master，通过这个命令就可以把本地master分支最新修改推送至GitHub。master为本地要推送的分支。origin为远程库的名字。
