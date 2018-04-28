@@ -68,7 +68,7 @@ react native 知识点:
 
 4.布局：主轴与次轴是垂直的关系。
 
-	指定主轴：	  FlexDirection： row（左->右）row-reverse，column（上->下）column-reverse
+	指定主轴：	  flexDirection： row（左->右）row-reverse，column（上->下）column-reverse
 	排列方式（主轴）：justifyContent：（类似gravity）flex-start，center，flex-end，space-between（n-1个空），space-around（n+1个空）
 	排列方式（次轴）：alignItems    ：flex-start、center、flex-end、stretch（次轴方向不能有宽度，大概是自适应大小）
 
