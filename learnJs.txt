@@ -1,0 +1,210 @@
+1.原始类型：undefined,boolean,number,string,object。
+  	1.1 NaN表示非数，一般在String,boolean转换失败时出现，有自身不相等的特性，用isNaN判断即可。
+  	1.2 String对象：位置都是从0开始。
+  	  	str.charAt(1),返回该位置的字符。
+  	  	str.charCodeAt(1),该位置的字符代码。
+  	  	str.concat("1"),字符串拼接，并返回新的str对象。str的值保持不变。
+  	  	str.indexOf("a"),从str中找打a的开始位置。
+  	  	str.lastIndexOf("a"),从str的结尾开始检索子串。
+  	  	str.localeCompare("abc"),str="cba" 返回大于0的数，str="aac" 返回小于0的数，"abc"，返回0。
+  	  	str.slice("3"),支持两个参数，起始位置、结束位置，支持负数，（转换为正数，加上str长度）。
+  	  	str.substring("3"),支持两个参数，起始位置、结束位置,不支持负数
+  	  	toLowerCase()、toLocaleLowerCase()、toUpperCase() 和 toLocaleUpperCase()，大小写切换。
+  	  	instanceof ，判断对象的类型。
+
+2.Boolean:
+  	2.1 其他类型转换成boolean：
+  	  	Undefined ：false。
+  	  	Null      ：false。
+  	  	Number    ：如果参数为 +0, -0 或 NaN，则结果为 false；否则为 true。
+  	  	String    ：	如果参数为空字符串，则结果为 false；否则为 true。
+  	  	Object    ：true。
+
+  	2.2 引用类型通常叫类
+
+3.ECMAScript：
+	3.1 等性运算：(==、!=)
+		执行类型转换的规则:
+			如果一个运算数是 Boolean 值，在检查相等性之前，把它转换成数字值。false 转换成 0，true 为 1。
+			如果一个运算数是字符串，另一个是数字，在检查相等性之前，要尝试把字符串转换成数字。
+			如果一个运算数是对象，另一个是字符串，在检查相等性之前，要尝试把对象转换成字符串。
+			如果一个运算数是对象，另一个是数字，在检查相等性之前，要尝试把对象转换成数字。
+			值 null 和 undefined 相等。
+			在检查相等性时，不能把 null 和 undefined 转换成其他值。
+			如果某个运算数是 NaN，等号将返回 false，非等号将返回 true。
+			如果两个运算数都是对象，那么比较的是它们的引用值。如果两个运算数指向同一对象，那么等号返回 true，否则两个运算数不等。
+	3.2 (===、!==)
+		它们在检查相等性前，不执行类型转换。
+	3.3 函数：
+		可以随时随地的运行。
+		arguments是一个参数数组，函数可以不声明参数，直接传递就可以。
+		函数实际上是功能完整的对象：例如：
+		function sayHi(sName, sMessage) {
+  			alert("Hello " + sName + sMessage);
+		}
+		可以写作:var sayHi = new Function("sName", "sMessage", "alert(\"Hello \" + sName + sMessage);");
+		函数名只是指向函数对象的引用值。
+		注意：尽管可以使用 Function 构造函数创建函数，但最好不要使用它，因为用它定义函数比用传统方式要慢得多。
+		sayHi.toString(),返回的是这个函数的源代码。
+		3.3.1
+			闭包：指的是词法表示包括不被计算的变量的函数，也就是说，函数可以使用函数之外定义的变量。
+	3.4 对象：var oObject = new Object();无参数时：var oObject = new Object;
+		属性和方法都是共有的（作用域），
+		obj._color_ = "blue"; 开发者约定 _props_ 这种形式的为私有变量。
+		没有静态作用域。
+		不过，它可以给构造函数提供属性和方法。还记得吗，构造函数只是函数。函数是对象，对象可以有属性和方法。例如：
+		function sayHello() {
+  			alert("hello");
+		}
+
+		sayHello.alternate = function() {
+		  alert("hi");
+		}
+
+		sayHello();		//输出 "hello"
+		sayHello.alternate();	//输出 "hi"
+
+		3.4.1 对象创建后可以动态添加属性和方法。
+		3.4.2 工长方式：
+				function createCar(){
+					var oCar = new Object; 
+					oCar.color = "red"; 
+					return oCar
+					} 
+				var oCar1 = createCar();
+				var oCar2 = createCar();
+		3.4.3 prototype:
+				function Car(){};
+				Car.prototype.color = "blue";
+		3.4.4 混合的构造函数/原型方式:
+			 	所有的非函数属性都在构造函数中创建。
+
+4.ECMAScript6：
+	
+1.解构赋值用途:
+	1.1 交换变量的值:let x = 1; let y = 2; [x, y] = [y, x];
+	1.2 从函数返回多个值:function example() {return [1, 2, 3];}let [a, b, c] = example();
+	1.3 函数参数的定义、函数参数的默认值
+	1.4 提取 JSON 数据
+	1.5 遍历 Map 结构,单独的key或value都可以
+		const map = new Map();
+		map.set('first', 'hello');
+		map.set('second', 'world');
+
+		for (let [key, value] of map) {
+  			console.log(key + " is " + value);
+		}
+2.字符串：
+	2.1 Unicode '\uxxxx'
+	2.2 codePointAt，正确的返回位置的unicode码
+	2.3 str.fromCodePoint 根据给的unicode，返回对应的字符。
+	2.4 for (let codePoint of 'foo') {console.log(codePoint)}//for of循环，打印 f、o、o,可以读取中文汉字
+	2.5 at(0) 返回位置的字符。
+	2.6 includes()：返回布尔值，表示是否找到了参数字符串。 //第二个参数为int，指定开始位置
+		startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。 //第二个参数为int，指定开始位置
+		endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。 //第二个参数为int，指定结束位置
+	2.7 'x'.repeat(2.9) //xx,会被取整，小于-1的报错，0到-1的为0，即返回空字符串。若是字符串，则转换为int
+	2.8 padStart()，padEnd()，补全字符串 'x'.padStart(5, 'ab') // 'ababx'、'x'.padEnd(4, 'ab') // 'xaba'。
+	2.9 `this is ${code}` code=0,大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。可以嵌套
+3.函数：
+	3.1 箭头函数:
+		由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。(对象不需要return),一行的不需要return。
+		函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。
+		如果双冒号左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面。
+4.数组：
+	4.1 console.log(...[1, 2, 3])// 1 2 3，将一个数组转为用逗号分隔的参数序列。
+	    如果扩展运算符后面是一个空数组，则不产生任何效果。 [...[], 1] // [1]
+	4.2 数组克隆：  es5：a1.concat()；
+		const a1 = [1, 2];
+		// 写法一 
+		const a2 = [...a1];
+		// 写法二 
+		const [...a2] = a1;
+	4.3 合并数组： es5:[1, 2].concat(more)
+		[1, 2, ...more]
+	4.4 const [first, ...rest] = [1, 2, 3, 4, 5];
+		first // 1
+		rest  // [2, 3, 4, 5]
+		只能是最后一位。
+	4.5 将字符串转为真正的数组。
+		[...'hello']
+		// [ "h", "e", "l", "l", "o" ]
+	4.6 实现了 Iterator 接口的对象
+	4.7 let map = new Map([
+  			[1, 'one'],
+  			[2, 'two'],
+  			[3, 'three'],
+		]);
+		let arr = [...map.keys()]; // [1, 2, 3]
+	4.8 Array.from({length:3},()=>'bike')  //['bike','bike','bike']
+	4.9 Array.of(3, 11, 8) // [3,11,8]
+	4.10 	// 将3号位复制到0号位
+			[1, 2, 3, 4, 5].copyWithin(0, 3, 4)
+			// [4, 2, 3, 4, 5]
+	4.11   	[1, 4, -5, 10].find((n) => n < 0)
+			// -5
+	4.12    ['a', 'b', 'c'].fill(7)
+			// [7, 7, 7]
+
+			new Array(3).fill(7)
+			// [7, 7, 7]
+
+			['a', 'b', 'c'].fill(7, 1, 2)
+			// ['a', 7, 'c']
+
+			若fill传对象，则对象修改，数组内的数据全部修改了
+	4.13    for (let index of ['a', 'b'].keys()) {
+			console.log(index);
+			}
+			// 0
+			// 1
+
+			for (let elem of ['a', 'b'].values()) {
+			console.log(elem);
+			}
+			// 'a'
+			// 'b'
+
+			for (let [index, elem] of ['a', 'b'].entries()) {
+			console.log(index, elem);
+			}
+			// 0 "a"
+			// 1 "b"
+	4.14    [1, 2, 3].includes(2)     // true
+			[1, 2, 3].includes(4)     // false
+
+	4.15   	[1, 2, 3].includes(3, 3);  // false
+			[1, 2, 3].includes(3, -1); // true
+5.对象:
+	5.1 const foo = 'bar';                     
+		const baz = {foo};                      
+		baz // {foo: "bar"}                     
+ 
+		// 等同于                             
+		const baz = {foo: foo};                     
+		----------------------------------
+		function f(x, y) {
+		  return {x, y};
+		}
+
+		// 等同于
+
+		function f(x, y) {
+		  return {x: x, y: y};
+		}
+
+		f(1, 2) // Object {x: 1, y: 2}
+		---------------------------------
+		const o = {
+		  method() {
+		    return "Hello!";
+		  }
+		};
+
+		// 等同于
+
+		const o = {
+		  method: function() {
+		    return "Hello!";
+		  }
+		};
