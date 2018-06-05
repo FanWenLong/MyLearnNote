@@ -1,0 +1,31 @@
+Android Debug Bridge(adb)命令：
+1.adb version
+	查看版本。
+2.adb devices
+	查看连接的设备
+3.adb -s <serialNumber> ...
+	选择指定设备进行操作：（adb devices 可查看serialNumber）
+4.adb kill-server
+	杀死服务（部分手机的连接还在，没有中断）
+5.adb start-server
+	启动服务
+//**************************************************************************//
+	adb 的运行原理是 PC 端的 adb server 与手机端的守护进程 adbd 建立连接，
+	然后 PC 端的 adb client 通过 adb server 转发命令，adbd 接收命令后解析运行。
+
+	以下命令如果是多设备情况下，请填上3中的参数。
+//*************************************************************************//
+
+6.adb root
+	以root权限运行命令
+7.adb shell
+	进入shell命令环境
+8.adb -P <port> start-server
+	设置监听端口，（默认5037）
+9.adb install [-r/-s/-d] <apk file>
+	-r 允许覆盖安装
+	-s 将应用安装到sdcard
+	-d 允许降级覆盖安装
+	若文件不在命令的目录下，需要绝对路径
+10.adb uninstall [-k] <packagename>
+	卸载应用（-k 表示保留数据和缓存目录）
