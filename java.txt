@@ -1,0 +1,75 @@
+1.注解:
+	注解（也被成为元数据）为我们在代码中添加信息提供了一种形式化的方法，
+	使我们可以在稍后某个时刻非常方便地使用这些数据。 
+		——————摘自《Thinking in Java》
+		
+	它可以保存一些数据，以便以后使用。java1.5添加。
+	
+	@interface:
+		注解元素的限定符 例如public @interface MyAnnotation{}
+		@MyAnnotation 就是一个注解了。但是单单这样是没有什么作用的。
+	
+	元注解：（修饰注解的注解）
+	@Retantion
+		RetentionPolicy.SOURCE 
+			表示注解的信息会被编译器抛弃，不会留在class文件中，注解的信息只会留在源文件中
+		RetentionPolicy.CLASS
+			表示注解的信息被保留在class文件(字节码文件)中当程序编译时，
+			但不会被虚拟机读取在运行的时候
+		RetentionPolicy.RUNTIME
+			表示注解的信息被保留在class文件(字节码文件)中当程序编译时，
+			会被虚拟机保留在运行时
+	
+	@Target
+		ElementType.TYPE
+		ElementType.FIELD
+		ElementType.METHOD
+		ElementType.PARAMETER
+		ElementType.CONSTRUCTOR
+		ElementType.LOCAO_VARIABLE
+		ElementType.ANNORATION_TYPE
+		ElementType.PACHAGE
+	
+	接下来是处理器：AbstractProcessor
+	
+		@Override
+		public synchronized void init(ProcessingEnvironment env){ }
+		
+		
+		
+		@Override
+		public boolean process(Set<? extends TypeElement> annoations, RoundEnvironment env) { }
+		主函数，写你的扫描、评估和处理注解的代码，以及生成Java文件
+		
+	在java7中，下面两个方法可以可以用注解代替。	
+		
+		@Override
+		public Set<String> getSupportedAnnotationTypes() { }
+		定义你的注解处理器注册到哪些注解上。
+
+		@Override
+		public SourceVersion getSupportedSourceVersion() { }
+		用来指定你使用的Java版本。通常这里返回SourceVersion.latestSupported()。
+		然而，如果你有足够的理由只支持Java 6的话，你也可以返回SourceVersion.RELEASE_6。
+		我推荐你使用前者。
+	
+	注解处理器是运行它自己的虚拟机JVM中，可以使用任何你在其他java应用中使用的的东西
+	
+	需要打包一个特定的文件javax.annotation.processing.Processor到META-INF/services路径下
+	
+	javax.annotation.processing.Processor的内容是，注解处理器的合法的全名列表，每一个元素换行分割
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
